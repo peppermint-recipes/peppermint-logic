@@ -25,6 +25,6 @@
   "devDependencies": {
     "ts-loader": "^8.0.4",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^4.5.0"
   }
 }
