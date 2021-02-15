@@ -1,0 +1,30 @@
+{
+  "name": "@peppermint-recipes/peppermint-logic",
+  "version": "0.1.0",
+  "description": "Shared logic for peppermint clients",
+  "main": "/dist/main.js",
+  "types": "/dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": "git@github.com:peppermint-recipes/peppermint-logic.git",
+  "license": " AGPL-3.0",
+  "scripts": {
+    "build": "webpack --mode=development",
+    "build-prod": "webpack --mode=production",
+    "start": "npm run build -- -w"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "axios": "^0.20.0",
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb-typescript": "^11.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "ts-loader": "^8.0.4",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}

@@ -1,0 +1,9 @@
+node_modules
+# Commit dist for now as we do not transpile dependencies in peppermint-web.
+# dist
+lib
+_bundles
+
+# Editor directories and files
+.idea
+.vscode
