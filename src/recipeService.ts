@@ -1,26 +1,44 @@
 import { Recipe } from 'types/recipe';
-import { http } from './api/axios';
+import isElectron from './utils/isElectron';
+import { LocalRecipesDesktop } from './LocalRecipesDesktop';
 
-export const createRecipe = async (recipe: Recipe): Promise<Recipe> => {
-  const response = await http.post('/recipes', recipe);
+export class RecipeService {
+  private localRecipesDesktop: LocalRecipesDesktop;
 
-  return response.data;
-};
+  constructor(localRecipes: LocalRecipesDesktop) {
+    this.localRecipesDesktop = localRecipes;
+  }
 
-export const getAllRecipes = async (): Promise<Array<Recipe>> => {
-  const response = await http.get('/recipes');
+  public async createRecipe(recipe: Recipe): Promise<Recipe> {
+    if (isElectron()) {
+      await this.localRecipesDesktop.addRecipe(recipe);
+      return recipe;
+    }
 
-  return response.data;
-};
+    throw new Error('Unknown Environment');
+  }
 
-export const getRecipeById = async (id: string): Promise<Recipe> => {
-  const response = await http.get(`/recipes/${id}`);
+  public getAllRecipes(): Array<Recipe> {
+    if (isElectron()) {
+      return this.localRecipesDesktop.getRecipes();
+    }
 
-  return response.data;
-};
+    throw new Error('Unknown Wnvironment');
+  }
 
-export const deleteRecipe = async (id: string): Promise<boolean> => {
-  const response = await http.delete(`/recipes/${id}`);
+  public getRecipeById(id: string): Recipe | undefined {
+    if (isElectron()) {
+      return this.localRecipesDesktop.getRecipeById(id);
+    }
 
-  return response.status === 200;
-};
+    throw new Error('Unknown Wnvironment');
+  }
+
+  public async deleteRecipe(id: string): Promise<void> {
+    if (isElectron()) {
+      return this.localRecipesDesktop.deleteRecipe(id);
+    }
+
+    throw new Error('Unknown Wnvironment');
+  }
+}

@@ -19,6 +19,7 @@ const configCallback = (env, argv) => {
     node: {
       // Do not use publicPath to overwrite __dirname, which is confusing
       __dirname: false,
+      fs: 'empty'
     },
 
     output: {

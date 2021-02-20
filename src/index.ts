@@ -1,12 +1,12 @@
-import isElectron from './utils/isElectron';
+import { LocalRecipesDesktop } from './LocalRecipesDesktop';
 import * as parseIngredients from './ingredientParser';
-import * as recipeService from './recipeService';
+import { RecipeService } from './recipeService';
 import * as shoppingListService from './shoppingListService';
 import * as weekService from './weekService';
 
-console.log(isElectron());
+const localRecipesDesktop = new LocalRecipesDesktop();
+const recipeService = new RecipeService(localRecipesDesktop);
 
-console.log('test');
 export {
   parseIngredients,
   recipeService,
