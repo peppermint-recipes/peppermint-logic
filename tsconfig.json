@@ -9,7 +9,7 @@
       "es2015",
       "DOM"
     ] /* Specify library files to be included in the compilation. */,
-     "allowJs": false,                       /* Allow javascript files to be compiled. */
+    "allowJs": false,                       /* Allow javascript files to be compiled. */
     "declaration": true /* Generates corresponding '.d.ts' file. */,
     "declarationDir": "./dist" /* Output directory for generated declaration files. */,
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
